@@ -1,0 +1,23 @@
+.card{
+    
+    height: 700px;
+    width: 400px;
+}
+@media screen and (max-width:700px) {
+    .card{
+        height: 400px;
+        width: 200px;
+    }
+}
+
+a{
+    text-decoration: none;
+}
+
+.crousal{
+    height: 300px;
+    width: 90%
+}
+.test{
+    color: red;
+}
