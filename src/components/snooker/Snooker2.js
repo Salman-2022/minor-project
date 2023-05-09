@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 
-export const Snooker2 = () => {
+export const Snooker2 = (props) => {
     const mystyle ={
         width: "400px",
         height: "450px",
@@ -17,7 +17,7 @@ export const Snooker2 = () => {
         <div className='' style={mystyle}>
           <div style={{backgroundColor: "rgb(0,0,0,0.6)", height: "100%", marginTop: "-24px"}}>
           <center>
-                     <h3 className='my-4'>TABLE 7</h3>
+                     <h3 className='my-4'>TABLE {props.data[6].tableNo}</h3>
           </center>
           <div className='mx-4'>
           <section>User_name</section>

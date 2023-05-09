@@ -1,6 +1,6 @@
 import React,{useState} from 'react'
 import './style.css'
-import {MDBContainer, MDBCol, MDBRow} from 'mdb-react-ui-kit';
+import {MDBContainer, MDBCol, MDBRow,MDBInput,MDBBtn} from 'mdb-react-ui-kit';
 
 
 export const Login = () => {
@@ -19,13 +19,13 @@ export const Login = () => {
   return (
     <>
     <center>
-    <div className='loginBox'>
+    <div className='loginBox d-flex flex-row align-items-center justify-content-center'>
         <MDBContainer fluid className="p-3 my-5 h-custom">
 
 <MDBRow>
 
   <MDBCol col='10' md='6'>
-    <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-login-form/draw2.webp" class="img-fluid" alt="Sample image" />
+    <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-login-form/draw2.webp" class="img-fluid" alt=""/>
   </MDBCol>
 
 <div>
@@ -40,17 +40,18 @@ export const Login = () => {
 
 <div className="divider d-flex align-items-center my-4">
 </div>
-{/* 
-<MDBInput wrapperClass='mb-4' label='User Id' id='formControlLg' type='email' size="lg"/>
-<MDBInput wrapperClass='mb-4' label='Password' id='formControlLg' type='password' size="lg"/>
+
+<MDBInput wrapperClass='mb-4' label='User Id' id='formControlLg' type='text' size="lg" value={username} onChange={(event) => setUsername(event.target.value)}/>
+<MDBInput wrapperClass='mb-4' label='Password' id='formControlLg' type='password' size="lg" value={password} onChange={(event) => setPassword(event.target.value)}/>
 
 
 <div className='text-center text-md-start mt-4 pt-2'>
-  <MDBBtn className="mb-0 px-5" size='lg'>Login</MDBBtn>
-</div> */}
-<label>
+  <MDBBtn type="submit" className="mb-0 px-5" size='lg'>Login</MDBBtn>
+  {/* <button type="submit" className='btn btn-primary my-3'>Log in</button> */}
+</div>
+{/* <label>
           Username:
-          <input type="text"  value={username} onChange={(event) => setUsername(event.target.value)} />
+          <input type="text"   />
         </label><br/>
         <br />
         <label>
@@ -58,7 +59,7 @@ export const Login = () => {
           <input type="password" value={password} onChange={(event) => setPassword(event.target.value)} />
         </label>
         <br />
-        <button type="submit" className='my-3'>Log in</button>
+        <button type="submit" className='btn btn-primary my-3'>Log in</button> */}
 
 </MDBCol>
   </form>

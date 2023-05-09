@@ -21,24 +21,24 @@ export const Table3 = (props) => {
         marginTop: "-24px",
 }}>
       <center>
-                 <h3 className='my-4'>TABLE {props.tableNo}</h3>
+                 <h3 className='my-4'>TABLE {props.data[2].tableNo}</h3>
       </center>
       <div className='mx-4'>
-      <section>User_name</section>
-      <section>Phone_number</section>
-      <section>
-        <spam>starting time</spam><span>Ending time</span>
-      </section>
-      <section><h2>Countdown</h2></section>
-      <section><h4>Payable Amount</h4>
-      </section>
-      <section className='my-5'>
-        <center>
-          <Link to='/input'>
-          <button className='btn btn-info '>Start The Clock</button>              </Link>
-        </center>
-      </section>
-      </div>
+          <section>NAME:={props.data[2].name}</section>
+          <section>Phone_number:-{props.data[2].phone}</section>
+          <section>
+            <spam>starting time:-{props.data[2].startTime}<br></br></spam>
+          </section>
+          <section><h2>Countdown:-{props.data[2].countdown}</h2></section>
+          <section><h4>Payable Amount:-{props.data[2].amount}</h4>
+          </section>
+          <section className=''>
+            <center>
+            <Link to={`/input/${props.data[2].tableNo}`}>
+              <button className='btn btn-info '>Start The Clock</button>              </Link>
+            </center>
+          </section>
+          </div>
       </div>
     </div>
 

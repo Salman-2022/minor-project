@@ -1,0 +1,25 @@
+.about-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap:30px;
+    background-color: #d52727;
+    height: 300px;
+    width: 300px;
+    margin-top: 20px;
+}
+
+.about-container h1{
+    background-color: #FFF;
+    width: 100%;
+    color: #000;
+    padding: 0px;
+    margin: 0px;
+}
+
+.about-container img{
+    width: 100px;
+    height: 100px;
+    margin: 0px;
+}

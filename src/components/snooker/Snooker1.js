@@ -17,7 +17,7 @@ export const Snooker1 = (props) => {
         <div className='' style={mystyle}>
           <div style={{backgroundColor: "rgb(0,0,0,0.6)", height: "100%", marginTop: "-24px"}}>
           <center>
-                     <h3 className='my-4'>TABLE {props.tableNo}</h3>
+                     <h3 className='my-4'>TABLE {props.data[5].tableNo}</h3>
           </center>
           <div className='mx-4'>
           <section>User_name</section>

@@ -1,5 +1,5 @@
-import React from 'react'
-import { Link } from 'react-router-dom'
+import React, { useState, useEffect } from 'react'
+import { Link,json } from 'react-router-dom'
 
 export const Table2 = (props) => {
   const mystyle ={
@@ -21,24 +21,24 @@ export const Table2 = (props) => {
         marginTop: "-24px",
 }}>
       <center>
-                 <h3 className='my-4'>TABLE {props.tableNo}</h3>
+                 <h3 className='my-4'>TABLE {props.data[1].tableNo}</h3>
       </center>
       <div className='mx-4'>
-      <section>User_name</section>
-      <section>Phone_number</section>
-      <section>
-        <spam>starting time</spam><span>Ending time</span>
-      </section>
-      <section><h2>Countdown</h2></section>
-      <section><h4>Payable Amount</h4>
-      </section>
-      <section className='my-5'>
-        <center>
-          <Link to='/input'>
-          <button className='btn btn-info '>Start The Clock</button>              </Link>
-        </center>
-      </section>
-      </div>
+          <section>NAME:={props.data[1].name}</section>
+          <section>Phone_number:-{props.data[1].phone}</section>
+          <section>
+            <spam>starting time:-{props.data[1].startTime}<br></br></spam>
+          </section>
+          <section><h2>Countdown:-{props.data[1].countdown}</h2></section>
+          <section><h4>Payable Amount:-{props.data[1].amount}</h4>
+          </section>
+          <section className=''>
+            <center>
+            <Link to={`/input/${props.data[1].tableNo}`}>
+              <button className='btn btn-info '>Start The Clock</button>              </Link>
+            </center>
+          </section>
+          </div>
       </div>
     </div>
 

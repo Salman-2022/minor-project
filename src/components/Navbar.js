@@ -17,11 +17,13 @@ function Navbar() {
                 <a className="nav-link" href="#">Pricing</a>
             </li>
             </Link>
-            <Link to='/aboutus'>
+            
+            <Link to='./view'>
             <li className="nav-item">
                 <a className="nav-link" href="#">About Us</a>
             </li>
             </Link>
+            
             </ul>
         </div>
         </div>

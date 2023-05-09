@@ -1,11 +1,13 @@
 import React from 'react'
 import logo from "./cueStick.png"
+import styles from "../stylesheet/about.module.css"
+import { Link } from 'react-router-dom'
 
 export const About = () => {
   const mystyle ={
     width: "300px",
     height: "350px",
-    backgroundColor: "rgb(255, 255, 255,0.6)",
+    backgroundColor: "rgb(30, 144, 255,0.6)",
     color: "Red",
     alignItems: "center",
     marginTop: "15px",
@@ -13,7 +15,14 @@ export const About = () => {
   }
   return (
     <>
-    <div className='mx-4' style={mystyle}>
+    <div className={styles['about-container']}>
+      <h1>Cue Stick</h1>
+      <img src={logo} />
+      <Link to='./viewprofile'>
+      <button>View Profile</button>
+      </Link>
+    </div>
+    {/* <div className='mx-4' style={mystyle}>
       <center>
       <h1 className="my-4">Cue Stick</h1>
       <p>Current time</p>
@@ -22,7 +31,7 @@ export const About = () => {
        alt="Cue Stick Logo"/><br></br>
        <button>View Profile</button>
       </center>
-    </div>
+    </div> */}
     </>
   )
   

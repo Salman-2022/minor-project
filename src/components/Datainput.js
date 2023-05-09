@@ -1,43 +1,92 @@
 import React,{useState} from 'react'
 import '../App.css'
 import Navbar from './Navbar'
+import { useParams,redirect } from 'react-router-dom';
 
-export const Datainput = () => {
+export const Datainput = (props) => {
+  const {id} = useParams()
+  const [formData, setFormData] = useState({
+    name: "",
+    phone: "",
+    option: ""
+  });
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    let data = localStorage.getItem("tableData")
+    data = JSON.parse(data)
+    const ind = data.findIndex(el=>el.tableNo==id)
+    data[ind].name=formData.name
+    data[ind].phone=formData.phone
+    data[ind].countdown=parseInt(formData.option)
+    localStorage.setItem("tableData",JSON.stringify(data)) 
+    console.log(formData,id);
+    console.log(data)
+    window.location.href = '/home';
+
+  };
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData({ ...formData, [name]: value });
+
+    let data = localStorage.getItem("tableData")
+    data = JSON.parse(data)
+    data[0].name=formData.name
+    console.log(data)
+
+    // if(!formData.name || !formData.option || formData.phone){
+    //   alert('Name , phoneNo or time Option cannot be empty')
+    // }
+  }
   
   return (
     <>
     <Navbar/>
-    <center>
-      <div className='inputsection'>
-        <form>
-  <div className="mb-3 mx-2">
-    <label for="exampleInputEmail1" className="form-label">Customer's Name</label>
-    <input type="email" className="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"/>
-  </div>
-  <div className="mb-3 mx-2">
-    <label for="exampleInputEmail1" className="form-label">Phone Number</label>
-    <input type="tel" className="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"/>
-  </div>
-  <div class="form-check form-check-inline">
-  <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1"/>
-  <label class="form-check-label" for="inlineCheckbox1">30 min</label>
-</div>
-<div class="form-check form-check-inline">
-  <input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="option2"/>
-  <label class="form-check-label" for="inlineCheckbox2">1 Hr</label>
-</div>
-<div class="form-check form-check-inline">
-  <input class="form-check-input" type="checkbox" id="inlineCheckbox3" value="option2"/>
-  <label class="form-check-label" for="inlineCheckbox2">1.5 Hrs</label>
-</div>
-<div class="form-check form-check-inline">
-  <input class="form-check-input" type="checkbox" id="inlineCheckbox4" value="option2"/>
-  <label class="form-check-label" for="inlineCheckbox2">2 Hrs</label>
-</div><br></br>
-  <button type="submit" className="btn btn-primary my-4">Submit</button>
-</form>
+   
+      <div className="position-absolute top-50 start-50 translate-middle inputsection my-5 .align-items-end">
+
+    <form onSubmit={handleSubmit}>
+      <div className="mb-3 mx-2">
+      <label>
+        Name:
+        <input
+          className="form-label my-5"
+          type="text"
+          name="name"
+          value={formData.name}
+          onChange={handleChange}
+        />
+      </label>
+      <br />
+      <label>
+        Phone number:
+        <input
+          className="form-label my-5"
+          type="text"
+          name="phone"
+          value={formData.phone}
+          onChange={handleChange}
+        />
+      </label>
+      <br />
+      <label>
+        Time Duration:
+        <select className='form-label' name="option" value={formData.option} onChange={handleChange}>
+          <option value=""></option>
+          <option value="30">30 Min</option>
+          <option value="60">1 Hr</option>
+          <option value="90">1 Hr 30 Min</option>
+          <option value="120">2 Hrs</option>
+
+        </select>
+      </label>
+      <br />
+      <button className='btn btn-primary my-5' type="submit">Submit</button>
+      </div>
+    </form>
     </div>
-    </center>
+  
     </>
   )
   }
